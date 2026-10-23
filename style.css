@@ -161,12 +161,18 @@ html, body{
     align-items: center;
 }
 
-.elem img{
+.elem img {
     height: 200%;
-    z-index: 999;  /* image upar aa jaati hai written text se */
+    width: auto;
     position: absolute;
-    
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;              /* hidden until hover */
+    pointer-events: none;    /* image never blocks the hover */
 }
+    
+
 
 
 #work{
