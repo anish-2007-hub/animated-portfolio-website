@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0; /* (used for in of div) padding use krte hai div ke andar wale elements ke liye */
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+
+#minicircle{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+    width: 10px;
+    height: 10px;
+    position:absolute;
+    z-index: 99999;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
+.bounding{
+    width: fit-content;
+  overflow: hidden;
+}
+
+.bounding .boundingelem{
+    transform: translateY(100%);
+}
+
+#main{
+    width: 100%;
+}
+
+#hero{
+    position: relative;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+#nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#nav{
+    width: 100%;
+    padding: 30px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#heading{
+    color: white;
+    margin-top: 30px; /*(used for out of div) margin use krte hai khud ke liye */
+}
+
+#heading h1{
+    margin-left: 20px;
+    opacity: 0.7;
+    line-height: 1;
+    font-size: 10vw;
+    font-weight: 900;  
+}
+
+#heading #secondh1{
+    margin-left: 120px;
+}
+
+
+
+#blocktext{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: fit-content;
+}
+
+#blocktext h5{
+    text-align: right;
+    font-size: 15px;
+}
+
+#heading2{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 100px;
+}
+
+#heading2 h5{
+    margin-right: 20px;
+    text-align: right;
+}
+
+
+#herofooter{
+    position: absolute;
+    bottom: 3%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    background-color: black;
+
+}
+
+
+
+#herofooter1 a{
+    color: white;
+    text-decoration: none;
+}
+
+#herofooter2 a{
+    color: white;
+    text-decoration: none;
+}
+
+#second{
+    background-color: black;
+    width: 100%;
+    height: 150vh;
+  
+
+}
+
+
+
+.elem{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 3.5vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 3.5vh;
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}    
+
+.elem h1{
+    font-size: 7vw;
+    opacity: 0.7;
+}       
+    
+.elem h3{
+    display: flex;
+    align-items: center;
+}
+
+.elem img{
+    height: 200%;
+    z-index: 999;  /* image upar aa jaati hai written text se */
+    position: absolute;
+    
+}
+
+
+#work{
+    margin-top: 5vh;
+    margin-left: 3vw;
+    margin-right: 70vw;
+    color:white;
+    padding-left: 2vw;
+    display: flex;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+}
+
+#button{
+    background-color: black;
+    color: white;
+    padding : 1.5vh 2vw;
+    display: flex;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+
+#third{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding-top: 30vh;
+    padding-left: 10vw;
+    padding-right: 3vw;
+    padding-bottom: 30vh;
+   
+}
+
+#image{
+    height: 40vh;
+    width: 50vh;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5vw;
+    background-color: black;
+    
+}
+
+#aboutme{
+    color: white;
+    height: 50vh;
+    font-size: 20px;
+}
+
+#talk{
+    background-color: black;
+    width: 100%;
+    padding-left: 50vw;
+}
+
+
+#footer{
+    background-color: black;
+    width: 100%;
+    height: 60vh;
+    color: white;
+    padding-top: 15vh;
+    padding-left: 4vw;
+}
+
+
+#footer1 h4{
+    opacity: 0.7;
+}
+
+
+#footer1 a{
+    font-size: 3vw;
+    color: white;
+    text-decoration: none;
+}
+
+#footer2{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20vh;
+    margin-right: 4vw;
+}
+
+#footer2 a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 4vh;
+}
+
+
+#footer3{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid white;
+    margin-right: 4vw;
+}
+
+#footer3 h4{
+    margin-top: 3vh;
+}
+
+
+
+
+
+
+
+
+
+
