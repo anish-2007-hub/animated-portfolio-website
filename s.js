@@ -73,28 +73,57 @@ firstPageAnim();
 
 // teeno element ko sleect karo, uske baad teeno par ek mousemove lagao, jab mousemove ho to ye pata karo ki mouse kaha par hai, jiska matlab hai mouse ki x and y position pata karo, ab mouse ki x y position ke badle us image ko show karo and us image ko move karo, move karte waqt rotate karo, and jaise jaise mouse tez chale waise waise rotation bhi tez ho jaye
 
-document.querySelectorAll(".elem").forEach(function (elem) {
-  var rotate = 0;
-  var diffrot = 0;
+const elems = document.querySelectorAll(".elem");
 
-  elem.addEventListener("mouseleave", function (dets) {
-    gsap.to(elem.querySelector("img"), {
-      opacity: 0,
-      ease: Power3,
-      duration: 0.5,
+elems.forEach(function (elem) {
+  const img = elem.querySelector("img");
+  let lastX = 0;
+
+  // center on cursor + start hidden
+  gsap.set(img, { xPercent: -50, yPercent: -50, opacity: 0 });
+
+  elem.addEventListener("mouseenter", function (e) {
+    // instantly hide every other image
+    elems.forEach(function (other) {
+      if (other !== elem) {
+        const otherImg = other.querySelector("img");
+        gsap.killTweensOf(otherImg);
+        gsap.set(otherImg, { opacity: 0 });
+      }
+    });
+
+    // place the image at the cursor immediately, so it doesn't fly in from the old spot
+    const rect = elem.getBoundingClientRect();
+    gsap.killTweensOf(img);
+    gsap.set(img, {
+      top: e.clientY - rect.top,
+      left: e.clientX - rect.left,
+      rotate: 0,
+    });
+    lastX = e.clientX;
+
+    // fade in (opacity only)
+    gsap.to(img, { opacity: 1, duration: 0.25, ease: "power2.out" });
+  });
+
+  elem.addEventListener("mousemove", function (e) {
+    const rect = elem.getBoundingClientRect();
+    const speedX = e.clientX - lastX;
+    lastX = e.clientX;
+
+    // position + rotation only, with no opacity here
+    gsap.to(img, {
+      top: e.clientY - rect.top,
+      left: e.clientX - rect.left,
+      rotate: gsap.utils.clamp(-20, 20, speedX * 0.5),
+      duration: 0.6,
+      ease: "power3.out",
+      overwrite: "auto",
     });
   });
 
-  elem.addEventListener("mousemove", function (dets) {
-    var diff = dets.clientY - elem.getBoundingClientRect().top;
-    diffrot = dets.clientX - rotate;
-    rotate = dets.clientX;
-    gsap.to(elem.querySelector("img"), {
-      opacity: 1,
-      ease: Power3,
-      top: diff,
-      left: dets.clientX,
-      rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
-    });
+  elem.addEventListener("mouseleave", function () {
+    gsap.killTweensOf(img);
+    gsap.to(img, { opacity: 0, duration: 0.12, ease: "none" });
   });
 });
